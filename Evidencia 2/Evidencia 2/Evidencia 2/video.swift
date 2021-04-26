@@ -1,0 +1,32 @@
+//
+//  Video.swift
+//  Evidencia 2
+//
+//  Created by user167237 on 4/14/21.
+//  Copyright © 2021 user167237. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import WebKit
+
+class Video: UIViewController, WKUIDelegate {
+   
+    
+    @IBOutlet var webView : WKWebView!
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
+    
+     override func viewDidLoad() {
+           super.viewDidLoad()
+        let myURL = URL(string: "https://www.youtube.com/watch?v=nvUqnpicSd0")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+       }
+
+}
